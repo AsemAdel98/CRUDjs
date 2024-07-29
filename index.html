@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crud opration</title>
+
+</head>
+
+<body>
+
+
+
+  <div>
+    <h3 class="text-center py-4">إدارة المبيعات</h3>
+
+
+    <div class="w-75 mx-auto py-4 text-end" dir="rtl">
+
+      <label class="mb-2" for="ProductNameInput">اسم المنتح :</label>
+      <input required type="text" id="ProductNameInput" class="form-control mb-3">
+
+
+      <label class="mb-2" for="ProductPriceInput">سعر الكيلو :</label>
+      <input required type="number" id="ProductPriceInput" class="form-control mb-3">
+
+      <label class="mb-2" for="ProductPriceInput1">سعر الشيكارة :</label>
+      <input required type="number" id="ProductPriceInput1" class="form-control mb-3">
+
+      <label class="mb-2" for="ProductPriceInput2">سعر الطن :</label>
+      <input required type="number" id="ProductPriceInput2" class="form-control mb-3">
+
+
+      <label class="mb-2" for="ProductCategoryInput">نوع المنتح :</label>
+      <select id="ProductCategoryInput" class="form-control mb-3">
+        <option disabled selected>اختر النوع</option>
+        <option value="غلال">غلال</option>
+        <option value="علف">علف</option>
+      </select>
+
+
+      <label class="mb-2" for="ProductDescriptionInput">وصف المنتح :</label>
+      <select id="ProductDescriptionInput" class="form-control mb-5">
+        <option disabled selected>اختر الوصف</option>
+        <option value="عالي الجودة">عالي الجودة</option>
+        <option value="متوسط الجودة">متوسط الجودة</option>
+      </select>
+
+      <button id="addBtn" class="btn btn-outline-info d-inline" onclick="addProduct()">اضافة منتج </button>
+      <button id="ClearBtn" class="btn btn-outline-danger d-inline" onclick="clearForm()">clear </button>
+      <button id="updateBtn" class="btn btn-outline-success d-none" onclick="addUpdate()">تحديث </button>
+
+    </div>
+    <!-- ============================= search =============================================== -->
+    <input dir="rtl" oninput="searchProduct(this.value)" type="text" class="form-control mb-3 mx-auto w-50 "
+      placeholder="ابحث عن المنتج ........">
+    <!-- ============================= search =============================================== -->
+
+  </div>
+
+
+
+
+
+
+
+
+  <!-- =======================================  table ====================================== -->
+  <table class="table table-striped table-hover w-75 mx-auto text-end" dir="rtl">
+    <thead>
+      <th>م</th>
+      <th>اسم المنتج</th>
+      <th> سعر الكيلو</th>
+      <th>سعر الشيكارة</th>
+      <th>سعر الطن</th>
+      <th>نوع المنتح</th>
+      <th>وصف المنتج</th>
+      <th>تحديث</th>
+      <th>حذف</th>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+
+  </table>
+  <div class="text-center  mb-3">
+    <button class="btn btn-danger form-control w-75" data-bs-toggle="modal" data-bs-target="#exampleModal">حذف
+      الكل</button>
+  </div>
+  <!-- =======================================  table ====================================== -->
+
+
+
+
+
+  <!--====================================== Modal ========================================-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" dir="rtl">
+          <h5 class="modal-title" id="exampleModalLabel">تحذير</h5>
+          <div dir="ltr"><button type="button" class=" btn-danger rounded-circle" data-bs-dismiss="modal"
+              aria-label="Close">
+              <i class="fa-solid fa-xmark fs-5"></i> </button></div>
+
+        </div>
+        <div class="modal-body" dir="rtl">انت على وشك حذف كل شئ. هل تريد الاستمرار؟</div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">لا</button>
+          <button type="button" class="btn btn-danger" onclick="deleteAllBtn()" data-bs-dismiss="modal">نعم</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--====================================== Modal ========================================-->
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/all.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
